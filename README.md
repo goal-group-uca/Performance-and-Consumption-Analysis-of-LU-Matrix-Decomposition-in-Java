@@ -1,3 +1,6 @@
 # Performance and Consumption Analysis of LU Matrix Decomposition on Heterogeneous and Traditional Multicore CPUs
 Modern processors increasingly adopt heterogeneous architectures implementing both high-performance and energy-efficient cores, at the expense of traditional homogeneous designs. This shift breaks the simple link between core count and throughput, making classical performance models unreliable. This work compares three LU factorization variants—Crout, Doolittle, and LUP—implemented in Java across two representative CPU platforms (Intel Core i9-12900HK and AMD Ryzen7 7800X3D) and two operating systems (Windows and GNU/Linux). Execution time and energy consumption are measured for sequential and parallel implementations, revealing that performance and efficiency depend strongly on the interaction of algorithmic memory-access patterns, processor microarchitecture, and OS/runtime policies rather than following simple, hardware-agnostic trends. These findings highlight the need to evaluate algorithms within their target hardware and software environments and to revisit optimization strategies for emerging heterogeneous processors, where scheduling and energy tradeoffs are increasingly complex.
+
 **Keywords**: LU decomposition · Heterogeneous multicore processors · Energy efficiency · Java high-performance computing
+
+**Cite this paper as**:
