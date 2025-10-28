@@ -11,7 +11,7 @@ public class DoolittleParallelVersion implements Runnable
     private static double[][] A, L, U;
     private static int i, N, cores;
     private static CountDownLatch latch;
-    
+
     private int idCore, targetMatrix;
     private int j, k;
     private double sum;
@@ -49,7 +49,7 @@ public class DoolittleParallelVersion implements Runnable
                     }
                     if(U[i][i] == 0)
                     {
-                        throw new ArithmeticException("Division by 0.");
+                        throw new ArithmeticException("Division by zero.");
                     }
                     L[j][i] = (A[j][i] - sum) / U[i][i];
                 }

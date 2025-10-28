@@ -6,7 +6,7 @@
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
- 
+
 public class LUPParallelVersion implements Runnable
 {
     private static double[][] A, L, U;
@@ -14,7 +14,7 @@ public class LUPParallelVersion implements Runnable
     private static CountDownLatch latch;
     private static Object lock = new Object();
     private static double maxValue;
-    
+
     private int idCore, targetMatrix;
     private int i, k;
     private double sum;
@@ -29,7 +29,7 @@ public class LUPParallelVersion implements Runnable
     {
         try
         {
-            if(targetMatrix == -1) 
+            if(targetMatrix == -1)
             {
                 double localMax = 0;
                 int localPivot = j;
@@ -78,7 +78,7 @@ public class LUPParallelVersion implements Runnable
                     }
                     if(L[j][j] == 0)
                     {
-                        throw new ArithmeticException("Division by 0.");
+                        throw new ArithmeticException("Division by zero.");
                     }
                     U[j][i] = (A[j][i] - sum) / L[j][j];
                 }
@@ -125,14 +125,14 @@ public class LUPParallelVersion implements Runnable
                 auxarr = A[j];
                 A[j] = A[pivot];
                 A[pivot] = auxarr;
-                
+
                 for(int k = 0; k < j; k++)
                 {
                     auxdbl = L[j][k];
                     L[j][k] = L[pivot][k];
                     L[pivot][k] = auxdbl;
                 }
-                
+
                 auxarr = P[j];
                 P[j] = P[pivot];
                 P[pivot] = auxarr;
@@ -158,4 +158,3 @@ public class LUPParallelVersion implements Runnable
         pool.shutdown();
     }
 }
- 

@@ -32,7 +32,7 @@ public class DoolittleSequentialVersion
                 }
                 if(U[i][i] == 0)
                 {
-                    throw new ArithmeticException("Division by 0.");
+                    throw new ArithmeticException("Division by zero.");
                 }
                 L[j][i] = (A[j][i] - sum) / U[i][i];
             }
