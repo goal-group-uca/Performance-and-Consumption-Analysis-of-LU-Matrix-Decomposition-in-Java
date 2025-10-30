@@ -12,7 +12,7 @@ public class CroutParallelVersion implements Runnable
     private static double[][] A, L, U;
     private static int j, N, cores;
     private static CountDownLatch latch;
-    
+
     private int idCore, targetMatrix;
     private int i, k;
     private double sum;
@@ -50,7 +50,7 @@ public class CroutParallelVersion implements Runnable
                     }
                     if(L[j][j] == 0)
                     {
-                        throw new ArithmeticException("Division by 0.");
+                        throw new ArithmeticException("Division by zero.");
                     }
                     U[j][i] = (A[j][i] - sum) / L[j][j];
                 }
@@ -82,8 +82,8 @@ public class CroutParallelVersion implements Runnable
             //Bucle L
             latch = new CountDownLatch(cores);
 
-            for(int tarea = 0; tarea < cores; tarea++)
-                pool.execute(new CroutParallelVersion(tarea, 0));
+            for(int task = 0; task < cores; task++)
+                pool.execute(new CroutParallelVersion(task, 0));
 
             try{latch.await();}
             catch(InterruptedException e){}

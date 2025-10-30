@@ -33,14 +33,14 @@ public class LUPSequentialVersion
                 auxarr = A[j];
                 A[j] = A[pivot];
                 A[pivot] = auxarr;
-                
+
                 for(k = 0; k < j; k++)
                 {
                     auxdbl = L[j][k];
                     L[j][k] = L[pivot][k];
                     L[pivot][k] = auxdbl;
                 }
-                
+
                 auxarr = P[j];
                 P[j] = P[pivot];
                 P[pivot] = auxarr;
@@ -64,7 +64,7 @@ public class LUPSequentialVersion
                 }
                 if(L[j][j] == 0)
                 {
-                    throw new ArithmeticException("Division by 0.");
+                    throw new ArithmeticException("Division by zero.");
                 }
                 U[j][i] = (A[j][i] - sum) / L[j][j];
             }
